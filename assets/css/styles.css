@@ -1,2 +1,40 @@
 
-/* css */
+
+#tos-input {
+    width: 100%;
+    padding: 10px;
+}
+
+.summary-output ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.summary-output li {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-output .icon {
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+.summary-output .icon.safe {
+    color: green;
+}
+
+.summary-output .icon.warning {
+    color: orange;
+}
+
+.summary-output .icon.danger {
+    color: red;
+}
+
+.summary-output strong {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}

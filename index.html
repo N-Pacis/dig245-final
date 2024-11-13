@@ -1,20 +1,27 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <!-- meta tags, links to css, etc. -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Final Project</title>
+    <title>TOS LENS</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
+    <h1>TOS Lens</h1>
+    <p>Enter the Terms of Service content below to get a summarized version:</p>
+    
+    <form id="tos-form">
+        <label for="tos-input">Terms of Service:</label>
+        <textarea name="tos" id="tos-input" rows="10" cols="50" placeholder="Enter the TOS text here..."></textarea>
+        <button type="submit">Summarize TOS</button>
+    </form>
 
-    <!-- visible content goes here -->
-	<h1>Final Project</h1>
-	<p>See README.md for info</p>
+    <h2>Summary</h2>
+    <div id="summary-output" class="summary-output">The summary will appear here...</div>
 
-    <!-- load javascript after the page elements render -->
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
