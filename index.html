@@ -1,27 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TOS LENS</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOS Lens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 
 <body>
-    <h1>TOS Lens</h1>
-    <p>Enter the Terms of Service content below to get a summarized version:</p>
-    
-    <form id="tos-form">
-        <label for="tos-input">Terms of Service:</label>
-        <textarea name="tos" id="tos-input" rows="10" cols="50" placeholder="Enter the TOS text here..."></textarea>
-        <button type="submit">Summarize TOS</button>
-    </form>
+    <header class="logo-section">
+        <img src="./assets/img/logo.png" alt="TOS Lens Logo" class="logo">
+    </header>
+    <section class="mission">
+        <h2 class="section-title">Our Mission</h2>
+        <p>
+            At <strong>TOS Lens</strong>, we aim to empower users with transparency and clarity in understanding complex Terms of Service agreements by providing concise, actionable insights directly within their browsing experience.
+        </p>
+        <p>
+            We aim to promote informed decision-making and protect digital rights in an increasingly interconnected world.
+        </p>
+    </section>
+    <button class="download-btn">Download Our Extension</button>
+    <section class="disclaimer">
+        <h2 class="section-title">Disclaimer</h2>
+        <p>
+            TOS Lens is designed to provide simplified summaries of Terms of Service agreements for informational purposes only.
+        </p>
+        <p>
+            While we strive for accuracy, the summaries are generated using AI and should not be considered legal advice. Users are encouraged to review the full terms or consult a legal professional for comprehensive understanding and guidance.
+        </p>
+        <p>
+            TOS Lens is not responsible for any decisions made based on its analyses.
+        </p>
+    </section>
+    <footer>
+        <p>© 2024 All rights reserved</p>
+    </footer>
 
-    <h2>Summary</h2>
-    <div id="summary-output" class="summary-output">The summary will appear here...</div>
+    <!-- Popup Section -->
+    <div class="popup show" id="popup">
+        <div class="popup-content">
+            <button class="close-btn" id="closePopup"><span>x</span></button>
+            <header class="popup-header">
+                <img src="./assets/img/logo.png" alt="TOS Lens Logo" class="popup-logo">
+            </header>
+            <p>This Google Privacy Policy outlines what information Google collects, why it collects it, and how users can manage their data.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clause</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="red">
+                        <td>Data Collection</td>
+                        <td>Google collects extensive data, including personal information.</td>
+                    </tr>
+                    <tr class="yellow">
+                        <td>Tracking</td>
+                        <td>Google employs extensive tracking through cookies, pixel tags, local storage, IP addresses, and other technologies.</td>
+                    </tr>
+                    <tr class="green">
+                        <td>Third-Party App Sharing</td>
+                        <td>Google does not share your data with third-party apps.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <script src="assets/js/main.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

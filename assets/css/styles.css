@@ -1,40 +1,184 @@
-
-
-#tos-input {
-    width: 100%;
-    padding: 10px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.summary-output ul {
-    list-style-type: none;
-    padding-left: 0;
+html, body {
+    height: 100%;
 }
 
-.summary-output li {
-    margin: 10px 0;
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #fff;
+    color: #000;
+    line-height: 1.6;
+    padding: 8px 50px;
     display: flex;
     flex-direction: column;
 }
 
-.summary-output .icon {
-    margin-right: 8px;
-    font-size: 1.2em;
+.logo-section {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.summary-output .icon.safe {
-    color: green;
+.logo {
+    object-fit: contain;
+    height: 180px;
 }
 
-.summary-output .icon.warning {
-    color: orange;
+.section-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #000;
 }
 
-.summary-output .icon.danger {
-    color: red;
+p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #000;
 }
 
-.summary-output strong {
-    display: block;
-    font-size: 1.1em;
-    margin-bottom: 5px;
+.download-btn {
+    margin: 20px auto;
+    background-color: #3D85EA;
+    color: #ffffff;
+    border: none;
+    padding: 17px 60px;
+    border-radius: 100px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
 }
+
+.download-btn:hover {
+    background-color: #0056b3;
+}
+
+.disclaimer {
+    flex: 1;
+}
+
+footer {
+    height: 20px;
+}
+
+footer>p{
+    font-size: 14px;
+    text-align: center;
+    font-style: italic;
+    color: #3F3F3F;
+}
+
+/* Popup Styles */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s ease;
+}
+
+.popup.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.popup-content {
+    background: #fff;
+    width: 60%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #3D85EA;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 13px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.close-btn:hover{
+    background-color: #0056b3;
+}
+
+.popup-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-logo {
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 6px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0 5px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    background-color: #fff;
+}
+
+table th {
+    font-weight: bold;
+    color: #333;
+}
+
+
+table td:first-child {
+    vertical-align: top;
+    font-weight: bold;
+}
+
+.red td {
+    background-color: #F5D6D6; 
+    color: #721c24;
+}
+
+.yellow td {
+    background-color: #FDF5B3;
+    color: #856404;
+}
+
+.green td {
+    background-color: #B3FDC7;
+    color: #155724;
+}
+
