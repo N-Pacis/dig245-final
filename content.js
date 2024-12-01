@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                       <img src="https://n-pacis.github.io/dig245-final/assets/img/logo.png" alt="TOS Lens Logo" class="popup-logo">
                   </header>
                   <p>[Brief Summary: Replace this with a short 1-2 sentence summary of the TOS]</p>
-                  <table>
+                  <table class="summary-table">
                       <thead>
                           <tr>
                               <th>Clause</th>

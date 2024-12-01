@@ -64,7 +64,7 @@
     margin-bottom: 6px;
 }
 
-table {
+.summary-table {
     width: 100%;
     border-collapse: separate; 
     border-spacing: 0 5px;
@@ -72,19 +72,19 @@ table {
     font-size: 15px;
 }
 
-table th, table td {
+.summary-table th, table td {
     padding: 12px 15px;
     text-align: left;
     background-color: #fff;
 }
 
-table th {
+.summary-table th {
     font-weight: bold;
     color: #333;
 }
 
 
-table td:first-child {
+.summary-table td:first-child {
     vertical-align: top;
     font-weight: bold;
 }
