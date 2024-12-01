@@ -1,0 +1,43 @@
+{
+    "manifest_version": 3,
+    "name": "T.O.S LENS",
+    "description": "We help you understand Terms of Service documents!",
+    "version": "0.1",
+    "author": "Pacis Nkubito",
+    "icons": {
+      "16": "assets/img/logo.png",
+      "32": "assets/img/logo.png",
+      "48": "assets/img/logo.png",
+      "128": "assets/img/logo.png"
+    },
+    
+    "action": {
+      "default_icon": {
+        "16": "assets/img/logo.png",
+        "32": "assets/img/logo.png",
+        "48": "assets/img/logo.png",
+        "128": "assets/img/logo.png"
+      },
+      "default_title": "T.O.S LENS",
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+      }
+    ],
+    "permissions": [
+      "scripting",
+      "tabs",
+      "activeTab"
+    ],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+  }
+  

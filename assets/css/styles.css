@@ -182,3 +182,41 @@ table td:first-child {
     color: #155724;
 }
 
+/* Extension styles */
+.extension-body{
+    min-width: 400px; 
+    max-width: 500px;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding-bottom: 30px;
+}
+
+.extension-logo {
+    width: 200px;
+    margin: 5px auto;
+}
+
+.info-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.scan-btn {
+    background-color: #3D85EA;
+    color: #fff;
+    border: none;
+    padding: 17px 60px;
+    border-radius: 100px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.scan-btn:hover {
+    background-color: #0056b3;
+}
