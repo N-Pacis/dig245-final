@@ -107,7 +107,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           stylesheetLink.href = 'https://n-pacis.github.io/dig245-final/assets/css/popup.css';
           document.head.appendChild(stylesheetLink);
 
-          // Append the cleaned response to the body (at the bottom)
           document.body.insertAdjacentHTML('beforeend', cleanedResponse);
 
           const closeScript = document.createElement('script');
