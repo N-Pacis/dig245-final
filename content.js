@@ -37,6 +37,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                   </table>
               </div>
           </div>
+
           <script src="https://n-pacis.github.io/dig245-final/assets/js/main.js"></script>
 
           Guidelines:
@@ -103,14 +104,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
           const stylesheetLink = document.createElement('link');
           stylesheetLink.rel = 'stylesheet';
-          stylesheetLink.href = 'https://n-pacis.github.io/dig245-final/assets/css/styles.css';
+          stylesheetLink.href = 'https://n-pacis.github.io/dig245-final/assets/css/popup.css';
           document.head.appendChild(stylesheetLink);
 
-          document.body.innerHTML = cleanedResponse;
+          // Append the cleaned response to the body (at the bottom)
+          document.body.insertAdjacentHTML('beforeend', cleanedResponse);
 
-          const scriptTag = document.createElement('script');
-          scriptTag.src = 'https://n-pacis.github.io/dig245-final/assets/js/main.js';
-          document.body.appendChild(scriptTag);
+          const closeScript = document.createElement('script');
+          closeScript.src = chrome.runtime.getURL('close-popup.js'); 
+          document.body.appendChild(closeScript);
 
           sendResponse({ success: true, geminiResponse: cleanedResponse });
       })
