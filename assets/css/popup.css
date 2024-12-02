@@ -15,7 +15,6 @@
     align-items: center;
     z-index: 1000;
     opacity: 0;
-    transition: visibility 0.3s, opacity 0.3s ease;
 }
 
 
@@ -108,14 +107,14 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
-    padding: 10px 20px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    width: 90%;
     font-size: 16px;
-    font-weight: bold;
     background-color: #3D85EA;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 100px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }

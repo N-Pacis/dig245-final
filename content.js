@@ -7,13 +7,13 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       const geminiPrompt = `
             Please summarize the Terms of Service (TOS) text provided and return the data strictly in the following format. Keep the response concise and focused:
   
-            <div class="popup show" id="tos-popup">
+            <div class="popup" id="tos-popup">
                 <div class="popup-content">
                       <button 
                           class="close-btn" 
                           id="closePopup" 
                           onclick="const popup = document.getElementById('tos-popup'); 
-                                  if (popup) popup.classList.remove('show');">
+                                  popup.style.visibility='hidden'">
                           <span>x</span>
                       </button>
   
