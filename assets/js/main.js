@@ -1,7 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   const scanButton = document.getElementById("scan-btn");
+  const scanText = document.getElementById("scan-text");
+  const scanLoader = document.getElementById("scan-loader");
 
-  scanButton.addEventListener("click", async () => {
+  scanButton.addEventListener("click", () => {
+    scanText.style.display = "none";
+    scanLoader.style.display = "inline-block";
+    scanButton.disabled = true;
+
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       if (tabs[0]?.id) {
         chrome.scripting.executeScript(
@@ -17,6 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (response && response.success) {
                   chrome.runtime.sendMessage({ action: 'logHTMLContent', content: response.content });
                 }
+
+                scanText.style.display = "inline";
+                scanLoader.style.display = "none";
+                scanButton.disabled = false;
               }
             );
           }

@@ -102,3 +102,43 @@
     background-color: #B3FDC7;
     color: #155724;
 }
+
+
+.scan-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #3D85EA;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scan-btn:hover {
+    background-color: #0056b3;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid #3D85EA;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
