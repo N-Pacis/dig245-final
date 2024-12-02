@@ -1,13 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const popup = document.getElementById("popup");
-  const closePopup = document.getElementById("closePopup");
-
-  if (closePopup) {
-    console.log("CLOSE BUTTON CLICKED")
-    closePopup.addEventListener("click", function () {
-      popup.classList.remove("show");
-    });
-  }
   const scanButton = document.getElementById("scan-btn");
 
   scanButton.addEventListener("click", async () => {

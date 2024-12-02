@@ -40,7 +40,7 @@
     right: 10px;
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 20px !important;
     cursor: pointer;
     background-color: #3D85EA;
     color: #fff;
@@ -74,7 +74,7 @@
     border-collapse: separate; 
     border-spacing: 0 5px;
     margin-top: 5px;
-    font-size: 15px;
+    font-size: 15px !important;
 }
 
 .summary-table th, table td {
