@@ -8,15 +8,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
           <div class="popup show" id="popup">
               <div class="popup-content">
-                  <button 
-    class="close-btn" 
-    id="closePopup" 
-    onclick="console.log('Closing popup'); 
-             document.getElementById('popup').style.backgroundColor = 'red'; 
-             const popup = document.getElementById('popup'); 
-             if (popup) popup.classList.remove('show');">
-    <span>x</span>
-</button>
+                    <button 
+                        class="close-btn" 
+                        id="closePopup" 
+                        onclick="console.log('Closing popup'); 
+                                const popup = document.getElementById('popup'); 
+                                if (popup) popup.classList.remove('show');">
+                        <span>x</span>
+                    </button>
 
                   <header class="popup-header">
                       <img src="https://n-pacis.github.io/dig245-final/assets/img/logo.png" alt="TOS Lens Logo" class="popup-logo">
@@ -122,10 +121,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         document.head.appendChild(stylesheetLink);
 
         document.body.insertAdjacentHTML("beforeend", cleanedResponse);
-
-        const closeScript = document.createElement("script");
-        closeScript.src = chrome.runtime.getURL("close-popup.js");
-        document.body.appendChild(closeScript);
       })
       .catch((error) => {
         console.error("Error fetching the Gemini API response:", error);
