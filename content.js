@@ -1,14 +1,23 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === 'getHTMLContent') {
-      const htmlContent = document.body.innerHTML;
+  if (request.action === "getHTMLContent") {
+    const htmlContent = document.body.innerHTML;
 
-      const apiKey = "AIzaSyBqfxJ7NFEyb7oCRthvLaSUiEDmbieMzpY";
-      const geminiPrompt = `
+    const apiKey = "AIzaSyBqfxJ7NFEyb7oCRthvLaSUiEDmbieMzpY";
+    const geminiPrompt = `
           Please summarize the Terms of Service (TOS) text provided and return the data strictly in the following format. Keep the response concise and focused:
 
           <div class="popup show" id="popup">
               <div class="popup-content">
-                  <button class="close-btn" id="closePopup"><span>x</span></button>
+                  <button 
+    class="close-btn" 
+    id="closePopup" 
+    onclick="console.log('Closing popup'); 
+             document.getElementById('popup').style.backgroundColor = 'red'; 
+             const popup = document.getElementById('popup'); 
+             if (popup) popup.classList.remove('show');">
+    <span>x</span>
+</button>
+
                   <header class="popup-header">
                       <img src="https://n-pacis.github.io/dig245-final/assets/img/logo.png" alt="TOS Lens Logo" class="popup-logo">
                   </header>
@@ -52,73 +61,80 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           ${htmlContent}
       `;
 
-      const requestOptions = {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [
+              {
+                text: geminiPrompt,
+              },
+            ],
           },
-          body: JSON.stringify({
-              contents: [
-                  {
-                      parts: [
-                          {
-                              text: geminiPrompt,
-                          },
-                      ],
-                  },
-              ],
-          }),
-      };
+        ],
+      }),
+    };
 
-      fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-          requestOptions
-      )
+    fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+      requestOptions
+    )
       .then((response) => {
-          if (!response.ok) {
-              throw new Error("Network response was not OK.");
-          }
-          return response.json();
+        if (!response.ok) {
+          throw new Error("Network response was not OK.");
+        }
+        return response.json();
       })
       .then((data) => {
-          const geminiResponse =
-              data.candidates?.[0]?.content?.parts?.[0]?.text || "No response from Gemini.";
+        const geminiResponse =
+          data.candidates?.[0]?.content?.parts?.[0]?.text ||
+          "No response from Gemini.";
 
-          const cleanedResponse = geminiResponse.replace(/```html|```/g, '').trim();
+        const cleanedResponse = geminiResponse
+          .replace(/```html|```/g, "")
+          .trim();
 
-          const preconnect1 = document.createElement('link');
-          preconnect1.rel = 'preconnect';
-          preconnect1.href = 'https://fonts.googleapis.com';
-          document.head.appendChild(preconnect1);
+        const preconnect1 = document.createElement("link");
+        preconnect1.rel = "preconnect";
+        preconnect1.href = "https://fonts.googleapis.com";
+        document.head.appendChild(preconnect1);
 
-          const preconnect2 = document.createElement('link');
-          preconnect2.rel = 'preconnect';
-          preconnect2.href = 'https://fonts.gstatic.com';
-          preconnect2.crossOrigin = 'true';
-          document.head.appendChild(preconnect2);
+        const preconnect2 = document.createElement("link");
+        preconnect2.rel = "preconnect";
+        preconnect2.href = "https://fonts.gstatic.com";
+        preconnect2.crossOrigin = "true";
+        document.head.appendChild(preconnect2);
 
-          const fontLink = document.createElement('link');
-          fontLink.href = 'https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap';
-          fontLink.rel = 'stylesheet';
-          document.head.appendChild(fontLink);
+        const fontLink = document.createElement("link");
+        fontLink.href =
+          "https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap";
+        fontLink.rel = "stylesheet";
+        document.head.appendChild(fontLink);
 
-          const stylesheetLink = document.createElement('link');
-          stylesheetLink.rel = 'stylesheet';
-          stylesheetLink.href = 'https://n-pacis.github.io/dig245-final/assets/css/popup.css';
-          document.head.appendChild(stylesheetLink);
+        const stylesheetLink = document.createElement("link");
+        stylesheetLink.rel = "stylesheet";
+        stylesheetLink.href =
+          "https://n-pacis.github.io/dig245-final/assets/css/popup.css";
+        document.head.appendChild(stylesheetLink);
 
-          document.body.insertAdjacentHTML('beforeend', cleanedResponse);
+        document.body.insertAdjacentHTML("beforeend", cleanedResponse);
 
-          const closeScript = document.createElement('script');
-          closeScript.src = chrome.runtime.getURL('close-popup.js'); 
-          document.body.appendChild(closeScript);
-
+        const closeScript = document.createElement("script");
+        closeScript.src = chrome.runtime.getURL("close-popup.js");
+        document.body.appendChild(closeScript);
       })
       .catch((error) => {
-          console.error("Error fetching the Gemini API response:", error);
-          sendResponse({ success: false, error: "Failed to fetch Gemini API response." });
+        console.error("Error fetching the Gemini API response:", error);
+        sendResponse({
+          success: false,
+          error: "Failed to fetch Gemini API response.",
+        });
       });
 
-      return true;
+    return true;
   }
 });

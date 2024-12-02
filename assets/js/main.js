@@ -25,8 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
               (response) => {
                 if (response && response.success) {
                   chrome.runtime.sendMessage({ action: 'logHTMLContent', content: response.content });
-                } else {
-                  console.error('Failed to get HTML content');
                 }
               }
             );
