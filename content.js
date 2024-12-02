@@ -1,8 +1,9 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "getHTMLContent") {
       const htmlContent = document.body.innerHTML;
-  
-      const apiKey = "AIzaSyBqfxJ7NFEyb7oCRthvLaSUiEDmbieMzpY";
+    
+      //AIzaSyBD6OEEzTwcvJB70dc8QlSGf8h3uhx5UR8
+      const apiKey = "AIzaSyBD6OEEzTwcvJB70dc8QlSGf8h3uhx5UR8";
       const geminiPrompt = `
             Please summarize the Terms of Service (TOS) text provided and return the data strictly in the following format. Keep the response concise and focused:
   
