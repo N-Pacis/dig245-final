@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                   <header class="popup-header">
                       <img src="https://n-pacis.github.io/dig245-final/assets/img/logo.png" alt="TOS Lens Logo" class="popup-logo">
                   </header>
-                  <p>[Brief Summary: Replace this with a short 1-2 sentence summary of the TOS]</p>
+                  <p class="summary-description">[Brief Summary: Replace this with a short 1-2 sentence summary of the TOS]</p>
                   <table class="summary-table">
                       <thead>
                           <tr>
@@ -113,7 +113,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           closeScript.src = chrome.runtime.getURL('close-popup.js'); 
           document.body.appendChild(closeScript);
 
-          sendResponse({ success: true, geminiResponse: cleanedResponse });
       })
       .catch((error) => {
           console.error("Error fetching the Gemini API response:", error);
