@@ -2,7 +2,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "getHTMLContent") {
       const htmlContent = document.body.innerHTML;
     
-      //AIzaSyBD6OEEzTwcvJB70dc8QlSGf8h3uhx5UR8
       const apiKey = "AIzaSyBD6OEEzTwcvJB70dc8QlSGf8h3uhx5UR8";
       const geminiPrompt = `
             Please summarize the Terms of Service (TOS) text provided and return the data strictly in the following format. Keep the response concise and focused:
@@ -136,6 +135,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   
           addElementIfNotExists('#tos-popup', () => {
             document.body.insertAdjacentHTML("beforeend", cleanedResponse);
+          });
+          sendResponse({
+            success: true,
+            content: "Fetched TOS summary successfully.",
           });
         })
         .catch((error) => {
