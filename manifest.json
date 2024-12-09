@@ -13,10 +13,10 @@
     
     "action": {
       "default_icon": {
-        "16": "assets/img/logo.png",
-        "32": "assets/img/logo.png",
-        "48": "assets/img/logo.png",
-        "128": "assets/img/logo.png"
+        "16": "assets/img/small-logo.png",
+        "32": "assets/img/small-logo.png",
+        "48": "assets/img/small-logo.png",
+        "128": "assets/img/small-logo.png"
       },
       "default_title": "T.O.S LENS",
       "default_popup": "popup.html"
@@ -27,13 +27,13 @@
     "content_scripts": [
       {
         "matches": ["<all_urls>"],
-        "js": ["content.js"],
+        "js": ["content.js", "assets/js/main.js"],
+        "css": ["assets/css/popup.css", "assets/css/styles.css"],
         "run_at": "document_end"
       }
     ],
     "permissions": [
       "scripting",
-      "tabs",
       "activeTab"
     ],
     "content_security_policy": {
